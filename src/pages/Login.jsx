@@ -8,6 +8,7 @@ import { addUser } from "../utils/userSlice";
 const Login = () => {
   const [email, setEmail] = useState("jagrut@gmail.com");
   const [password, setPassword] = useState("Jagrut@123");
+  const [errorMsg, setErrorMsg] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,6 +28,7 @@ const Login = () => {
       dispatch(addUser(res.data.data));
       return navigate("/");
     } catch (error) {
+      setErrorMsg(error?.response?.data);
       console.error(error);
     }
   };
@@ -74,6 +76,8 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+
+        <p className="text-red-600 font-semibold">{errorMsg}</p>
 
         <div className="card-actions justify-end">
           <button className="btn" onClick={handleLogin}>

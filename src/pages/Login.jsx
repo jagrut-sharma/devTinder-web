@@ -77,7 +77,7 @@ const Login = () => {
           />
         </label>
 
-        <p className="text-red-600 font-semibold">{errorMsg}</p>
+        <p className="text-error font-semibold">{errorMsg}</p>
 
         <div className="card-actions justify-end">
           <button className="btn" onClick={handleLogin}>

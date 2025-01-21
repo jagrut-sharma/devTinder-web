@@ -27,10 +27,15 @@ const Feed = () => {
     }
   }, []);
 
+  if (!feed) return;
+
+  if (feed.length === 0)
+    return <h1 className="my-8 text-2xl">No new users found</h1>;
+
   return (
     feed && (
       <div className="flex items-center">
-        <UserCard user={feed[0]} />
+        <UserCard user={feed[0]} buttons />
       </div>
     )
   );

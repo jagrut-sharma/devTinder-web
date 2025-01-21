@@ -33,10 +33,10 @@ const Connections = () => {
     return <h1 className="my-8 text-2xl">No connections found</h1>;
 
   return (
-    <div className="">
+    <div className="flex flex-col items-center">
       <h1 className="my-8 text-2xl text-center">Connections</h1>
       {connections.map((connection) => (
-        <div key={connection._id} className="my-6">
+        <div key={connection._id} className="my-6 w-[35rem]">
           <ConnectionCard connection={connection} />
         </div>
       ))}

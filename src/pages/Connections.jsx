@@ -25,18 +25,20 @@ const Connections = () => {
     if (!connections) {
       fetchConnections();
     }
-  });
+  }, []);
 
   if (!connections) return;
 
   if (connections.length === 0)
-    return <h1 className="my-8 text-2xl">No connections found.</h1>;
+    return <h1 className="my-8 text-2xl">No connections found</h1>;
 
   return (
     <div className="">
       <h1 className="my-8 text-2xl text-center">Connections</h1>
       {connections.map((connection) => (
-        <ConnectionCard connection={connection} key={connection._id} />
+        <div key={connection._id} className="my-6">
+          <ConnectionCard connection={connection} />
+        </div>
       ))}
     </div>
   );

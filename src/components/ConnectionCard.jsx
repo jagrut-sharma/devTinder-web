@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-const ConnectionCard = ({ connection, buttons }) => {
+const ConnectionCard = ({ connection, buttons, reviewRequest, requestId }) => {
   const { firstName, lastName, photoUrl, age, aboutUs } = connection;
   return (
-    <div className="card card-side bg-base-300 shadow-xl max-w-[100%]">
+    <div className="card card-side bg-base-300 shadow-xl min-w-[100%]">
       <figure>
         <img src={photoUrl} alt="photo" className="h-64" />
       </figure>
@@ -15,9 +15,19 @@ const ConnectionCard = ({ connection, buttons }) => {
         </div>
 
         {buttons && (
-          <div className="flex justify-evenly my-4">
-            <button className="btn btn-warning">Reject</button>
-            <button className="btn btn-success">Accept</button>
+          <div className="flex justify-evenly my-4 gap-8">
+            <button
+              className="btn btn-warning"
+              onClick={() => reviewRequest("reject", requestId)}
+            >
+              Reject
+            </button>
+            <button
+              className="btn btn-success"
+              onClick={() => reviewRequest("accept", requestId)}
+            >
+              Accept
+            </button>
           </div>
         )}
       </div>

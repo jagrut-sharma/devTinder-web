@@ -5,6 +5,7 @@ import Profile from "./pages/Profile";
 import Feed from "./pages/Feed";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Connections from "./pages/Connections";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/connections",
+        element: <Connections />,
       },
     ],
   },
